@@ -1,8 +1,21 @@
 # hashware-backbone-client
 
+Backbone client library for the hashware API
+
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
+
+## Usage
+
+```js
+var HashwareClient = require('hashware-backbone-client');
+HashwareClient.load()
+  .then(function (api) {
+    api.User.fetch({ name: 'tjwebb' });
+  });
+
+```
 
 [sails-logo]: http://cdn.tjw.io/images/sails-logo.png
 [sails-url]: https://sailsjs.org
