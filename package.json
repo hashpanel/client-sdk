@@ -1,0 +1,28 @@
+{
+  "name": "hashware-backbone-client",
+  "version": "0.0.1",
+  "description": "Backbone client library for the hashware API ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashware/backbone-client.git"
+  },
+  "keywords": [
+    "hashpanel",
+    "bitcoin",
+    "backbone",
+    "api",
+    "client",
+    "library",
+    "cgminer"
+  ],
+  "author": "Travis Webb <me@traviswebb.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hashware/backbone-client/issues"
+  },
+  "homepage": "https://github.com/hashware/backbone-client"
+}
