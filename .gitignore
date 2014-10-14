@@ -1,3 +1,5 @@
+tmp/
+*.sw*
 # Logs
 logs
 *.log
