@@ -26,15 +26,14 @@
   },
   "homepage": "https://github.com/hashware/backbone-client",
   "dependencies": {
+    "backbone-chaining": "git://github.com/ronen/backbone-chaining",
     "requireindex": "^1.1.0",
     "sails-backbone": "^1.0.18",
-    "sails-backbone-client": "0.0.4"
+    "sails-backbone-client": "latest"
   },
   "devDependencies": {
     "backbone": "^1.1.2",
     "backbone-relational": "^0.8.8",
-    "jquery": "^2.1.1",
-    "jsdom": "^1.0.2",
     "mocha": "^1.21.5",
     "najax": "^0.1.5"
   }

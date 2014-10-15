@@ -1,6 +1,7 @@
+var _ = require('lodash');
 var BackboneClient = require('sails-backbone-client');
 var DEFAULT_URL = 'https://hashpanel.io/api/v1/backbonemodel';
-var models = require('./models');
+var namespace = _.extend({ }, require('./models'), require('./collections'));
 
 /**
  * Generate the client-side Backbone models from the schema provided by the
@@ -9,5 +10,5 @@ var models = require('./models');
 exports.create = function (_url) {
   var url = _url || DEFAULT_URL;
 
-  return BackboneClient.create(url, models);
+  return BackboneClient.create(url, namespace);
 };
