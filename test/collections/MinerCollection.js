@@ -23,11 +23,11 @@ describe('MinerCollection', function () {
       })
     ];
     it('should exist', function () {
-      assert(_.isFunction(hashware.MinerCollection.prototype.getDeviceHashRate));
+      assert(_.isFunction(hashware.MinerCollection.prototype.getTotalDeviceHashRate));
     });
     it('should aggregate hashrate correctly', function () {
       var miners = new hashware.MinerCollection(minerCollection);
-      var deviceHashRate = miners.getDeviceHashRate();
+      var deviceHashRate = miners.getTotalDeviceHashRate();
       assert(deviceHashRate === 2, 'deviceHashRate ' + deviceHashRate);
     });
   });

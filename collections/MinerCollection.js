@@ -1,17 +1,27 @@
 var _ = require('lodash');
 
 module.exports = {
+
   /**
-   * Return the total hash rate of this MinerCollection, based on the declared
-   * hash rate of the devices.
+   * Return the total current hash rate of this MinerCollection
    *
    * @return hash rate in GH/s
    */
-  getDeviceHashRate: function () {
+  getCurrentHashRate: function () {
     return this.reduce(function (total, miner) {
-      return total + miner.get('device').get('hashRate');
+      return total + miner.getCurrentHashRate();
+    }, 0);
+  },
+
+  /**
+   * Return the total average hash rate of this MinerCollection
+   *
+   * @return hash rate in GH/s
+   */
+  getAverageHashRate: function () {
+    return this.reduce(function (total, miner) {
+      return total + miner.getAverageHashRate();
     }, 0);
   }
-
 
 };
