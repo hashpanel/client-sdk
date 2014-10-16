@@ -12,4 +12,6 @@ module.exports = {
       return total + miner.get('device').get('hashRate');
     }, 0);
   }
+
+
 };
