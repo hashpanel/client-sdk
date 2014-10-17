@@ -27,6 +27,7 @@
   "homepage": "https://github.com/hashware/backbone-client",
   "dependencies": {
     "backbone-chaining": "git://github.com/ronen/backbone-chaining",
+    "moment": "^2.8.3",
     "requireindex": "^1.1.0",
     "sails-backbone": "^1.0.18",
     "sails-backbone-client": "latest"

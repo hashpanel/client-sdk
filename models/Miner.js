@@ -1,16 +1,21 @@
 var _ = require('lodash');
+var moment = require('moment');
 
 module.exports = {
 
+  /**
+   * @return cgminer session update as a momentjs duration
+   * <http://momentjs.com/docs/#/durations>
+   */
   getUptime: function () {
-    return new Date(this.get('state').get('summary').Elapsed);
+    return moment.duration(this.get('state').get('summary').Elapsed);
   },
 
   /**
    * @return most recent recorded temperature in Celsius
    */
   getTemperature: function () {
-    return _.max(this.get('state').get('devs'), 'Temperature');
+    return _.max(this.get('state').get('devs'), 'Temperature').Temperature;
   },
 
   /**
@@ -29,7 +34,7 @@ module.exports = {
    *
    * @return hash rate in GH/s
    */
-  getAverageHashRate: function () {
+  getSessionHashRate: function () {
     return _.reduce(this.get('state').get('devs'), function (total, dev) {
       return total + (dev['MHS av'] / 1000);
     }, 0);
