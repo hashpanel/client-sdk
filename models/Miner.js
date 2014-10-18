@@ -8,7 +8,7 @@ module.exports = {
    * <http://momentjs.com/docs/#/durations>
    */
   getUptime: function () {
-    return moment.duration(this.get('state').get('summary').Elapsed);
+    return moment.duration(this.get('state').get('summary').Elapsed, 'seconds');
   },
 
   /**
