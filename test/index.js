@@ -8,6 +8,8 @@ var API = require('../');
 
 describe('hashware-backbone-client', function () {
   describe('#create', function () {
+    this.timeout(60 * 1000);
+
     before(function (done) {
       API.create('http://hashware-api.herokuapp.com/api/v1/backbonemodel')
         .then(function (api) {
