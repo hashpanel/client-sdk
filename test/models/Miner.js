@@ -12,7 +12,7 @@ describe('Miner', function () {
     state: new hashware.MinerState({
       id: Math.random() * 1000,
       summary: {
-        Elapsed: 86400000
+        Elapsed: 86400
       },
       devs: [
         {
