@@ -5,13 +5,15 @@ global.Backbone.ajax = require('najax');
 
 var assert = require('assert');
 var API = require('../');
+var HASHWARE_BASEURL = 'http://localhost:1337';
+var HASHWARE_BACKBONEMODELS_URL = HASHWARE_BASEURL + '/api/v1/backbonemodel';
 
 describe('hashware-backbone-client', function () {
   describe('#create', function () {
     this.timeout(60 * 1000);
 
     before(function (done) {
-      API.create('http://hashware-api.herokuapp.com/api/v1/backbonemodel')
+      API.create(HASHWARE_BACKBONEMODELS_URL)
         .then(function (api) {
           global.hashware = api;
           require('./models');
