@@ -3,5 +3,26 @@ node_js:
   - '0.10'
   - '0.11'
 
+addons:
+  - postgresql: '9.3'
+
+services:
+  - redis-server
+
 notifications:
   email: false
+
+env:
+  global:
+    - REDIS_URL=redis://:@localhost:6379
+    - DATABASE_URL=postgres://hashpanel:hashpanel@localhost:5432/hashpanel
+
+before_install:
+  - psql -c "create database hashpanel;" -U postgres
+  - psql -c "create user hashpanel with password 'hashpanel';" -U postgres
+  - psql -c "grant all privileges on database 'hashpanel' to hashpanel;" -U postgres
+  - npm install hashware-api
+
+before_script:
+  - npm start hashware-api &
+  - sleep 20
