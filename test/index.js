@@ -1,8 +1,10 @@
 var _ = require('lodash');
 
 global.Backbone = require('backbone');
+require('backbone-relational');
 global.Backbone.ajax = require('najax');
 
+var util = require('util');
 var assert = require('assert');
 var API = require('../');
 var HASHWARE_BASEURL = 'http://localhost:1337';
@@ -20,20 +22,30 @@ describe('hashware-backbone-client', function () {
           require('./collections');
           done();
         })
-        .catch(done);
+        .catch(function (error) {
+          done(error);
+        });
     });
 
-    it('should create Group', function () {
-      assert(new hashware.Group() instanceof Backbone.Model);
+    it('can instantiate Miner', function () {
+      var miner = new hashware.Miner();
+      assert(_.isObject(miner));
+      assert(miner instanceof hashware.Miner);
     });
-    it('should create Miner', function () {
-      assert(new hashware.Miner() instanceof Backbone.Model);
+    it('can instantiate MinerState', function () {
+      var state = new hashware.MinerState();
+      assert(_.isObject(state));
+      assert(state instanceof hashware.MinerState);
     });
-    it('should create MinerState', function () {
-      assert(new hashware.MinerState() instanceof Backbone.Model);
+    it('can instantiate Group', function () {
+      var group = new hashware.Group();
+      assert(_.isObject(group));
+      assert(group instanceof hashware.Group);
     });
-    it('should create PoolWorker', function () {
-      assert(new hashware.PoolWorker() instanceof Backbone.Model);
+    it('can instantiate Group', function () {
+      var worker = new hashware.PoolWorker();
+      assert(_.isObject(worker));
+      assert(worker instanceof hashware.PoolWorker);
     });
   });
 });
