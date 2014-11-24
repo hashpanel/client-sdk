@@ -1,8 +1,18 @@
 var _ = require('lodash');
+var najax = require('najax');
+
+najax.defaults({
+  url: {
+    hostname: 'localhost',
+    port: '1337',
+    protocol: 'http'
+  }
+});
 
 global.Backbone = require('backbone');
+global.Backbone.$ = { ajax: najax };
 require('backbone-relational');
-global.Backbone.ajax = require('najax');
+require('backbone-validation');
 
 var util = require('util');
 var assert = require('assert');
