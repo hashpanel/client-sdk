@@ -5,6 +5,18 @@ describe('MinerCollection', function () {
   it('should exist', function () {
     assert(hashware.MinerCollection);
   });
+  it('#fetch', function (done) {
+    var miners = new hashware.MinerCollection();
+    miners.fetch({
+      success: function () {
+        console.log(miners);
+        done();
+      },
+      error: function () {
+        done(arguments);
+      }
+    });
+  });
   describe('#getCurrentHashRate', function () {
     var minerCollection = [
       new hashware.Miner({

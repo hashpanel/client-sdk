@@ -6,6 +6,9 @@ najax.defaults({
     hostname: 'localhost',
     port: '1337',
     protocol: 'http'
+  },
+  headers: {
+    Authorization: 'Basic YWRtaW46YWRtaW4xMjM0'  // encoding of default admin user/pass
   }
 });
 

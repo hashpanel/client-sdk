@@ -36,6 +36,7 @@
   "devDependencies": {
     "backbone": "^1.1.2",
     "backbone-relational": "^0.8.8",
+    "backbone.basicauth": "^0.4.0",
     "mocha": "^1.21.5"
   }
 }
