@@ -1,3 +1,4 @@
 module.exports = {
-  Miner: require('./Miner')
+  Miner: require('./Miner'),
+  MinerState: require('./MinerState')
 };

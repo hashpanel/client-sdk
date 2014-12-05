@@ -9,7 +9,6 @@ describe('MinerCollection', function () {
     var miners = new hashware.MinerCollection();
     miners.fetch({
       success: function () {
-        console.log(miners);
         done();
       },
       error: function () {
@@ -20,9 +19,9 @@ describe('MinerCollection', function () {
   describe('#getCurrentHashRate', function () {
     var minerCollection = [
       new hashware.Miner({
-        id: 1,
+        id: Math.random() * 1000,
         state: new hashware.MinerState({
-          id: 1,
+          id: Math.random() * 1000,
           devs: [
             { 'MHS 5s': 1000 },
             { 'MHS 5s': 2000 }
@@ -30,9 +29,9 @@ describe('MinerCollection', function () {
         })
       }),
       new hashware.Miner({
-        id: 2,
+        id: Math.random() * 1000,
         state: new hashware.MinerState({
-          id: 2,
+          id: Math.random() * 1000,
           devs: [
             { 'MHS 5s': 3000 },
             { 'MHS 5s': 4000 }
@@ -46,7 +45,7 @@ describe('MinerCollection', function () {
     it('should aggregate hashrate correctly', function () {
       var miners = new hashware.MinerCollection(minerCollection);
       var currentHashRate = miners.getCurrentHashRate();
-      assert(currentHashRate === 10, 'currentHashRate ' + currentHashRate);
+      assert(currentHashRate === 10000, 'currentHashRate ' + currentHashRate);
     });
   });
 });

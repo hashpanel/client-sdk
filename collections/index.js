@@ -1,4 +1,5 @@
 module.exports = {
   MinerCollection: require('./MinerCollection'),
-  MinerDeviceCollection: require('./MinerDeviceCollection')
+  MinerDeviceCollection: require('./MinerDeviceCollection'),
+  MinerStateCollection: require('./MinerStateCollection')
 };

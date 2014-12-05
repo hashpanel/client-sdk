@@ -29,14 +29,16 @@
     "backbone-chaining": "git://github.com/ronen/backbone-chaining",
     "lodash": "^2.4.1",
     "moment": "^2.8.3",
-    "requireindex": "^1.1.0",
+    "moment-range": "^1.0.5",
     "sails-backbone": "^1.0.18",
-    "sails-backbone-client": "latest"
+    "sails-backbone-client": "latest",
+    "twix": "^0.5.1"
   },
   "devDependencies": {
     "backbone": "^1.1.2",
     "backbone-relational": "^0.8.8",
     "backbone.basicauth": "^0.4.0",
+    "congruence": "^1.6.4",
     "mocha": "^1.21.5"
   }
 }

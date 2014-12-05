@@ -48,17 +48,17 @@ describe('Miner', function () {
   });
   describe('#getCurrentHashRate', function () {
     it('should return the current hash rate in GHs', function () {
-      assert.equal(miner1.getCurrentHashRate(), 3);
+      assert.equal(miner1.getCurrentHashRate(), 3000);
     });
   });
   describe('#getSessionHashRate', function () {
     it('should return the average cgminer session hash rate in GHs', function () {
-      assert.equal(miner1.getSessionHashRate(), 3);
+      assert.equal(miner1.getSessionHashRate(), 3000);
     });
   });
   describe('#getPerformanceRatio', function () {
     it('should calculate current hashrate to device hashrate ratio', function () {
-      assert.equal(miner1.getPerformanceRatio(), 0.75);
+      assert.equal(miner1.getPerformanceRatio(), 750);
     });
   });
 });

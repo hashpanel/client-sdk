@@ -21,23 +21,19 @@ module.exports = {
   /**
    * Get most recent hashrate reported by cgminer for this Miner
    *
-   * @return hash rate in GH/s
+   * @return hash rate in MH/s
    */
   getCurrentHashRate: function () {
-    return _.reduce(this.get('state').get('devs'), function (total, dev) {
-      return total + (dev['MHS 5s'] / 1000);
-    }, 0);
+    return this.get('state').getInstantaenousHashrate();
   },
 
   /**
    * Get the average hashrate for the Miner's current cgminer session
    *
-   * @return hash rate in GH/s
+   * @return hash rate in MH/s
    */
   getSessionHashRate: function () {
-    return _.reduce(this.get('state').get('devs'), function (total, dev) {
-      return total + (dev['MHS av'] / 1000);
-    }, 0);
+    return this.get('state').getAverageHashrate();
   },
 
   /**

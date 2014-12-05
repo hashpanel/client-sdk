@@ -1,1 +1,5 @@
-module.exports = require('requireindex')(__dirname);
+module.exports = {
+  MinerCollection: require('./MinerCollection'),
+  MinerDeviceCollection: require('./MinerDeviceCollection'),
+  MinerStateCollection: require('./MinerStateCollection')
+};
