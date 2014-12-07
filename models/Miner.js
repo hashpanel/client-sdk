@@ -23,7 +23,7 @@ module.exports = {
    *
    * @return hash rate in MH/s
    */
-  getCurrentHashRate: function () {
+  getCurrentHashrate: function () {
     return this.get('state').getInstantaenousHashrate();
   },
 
@@ -32,7 +32,7 @@ module.exports = {
    *
    * @return hash rate in MH/s
    */
-  getSessionHashRate: function () {
+  getSessionHashrate: function () {
     return this.get('state').getAverageHashrate();
   },
 
@@ -42,6 +42,14 @@ module.exports = {
    * advertised speeds.
    */
   getPerformanceRatio: function () {
-    return (this.getCurrentHashRate() / this.get('device').get('hashRate')).toFixed(2);
+    return (this.getCurrentHashrate() / this.get('device').get('hashRate')).toFixed(2);
+  },
+
+  /**
+   * Check the last known state of the miner, and return true if the miner was
+   * available, and false otherwise.
+   */
+  isAvailable: function () {
+    return this.get('state').get('success');
   }
 };

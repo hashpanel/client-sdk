@@ -18,7 +18,6 @@ module.exports = {
    * Return a list of objects for the area chart
    *
    * @param iterator - twix iterator over a date range
-   */
   getHashchartData: function (iterator) {
     var data = [ ];
 
@@ -44,5 +43,6 @@ module.exports = {
     }
 
     return data;
-  }
+  },
+   */
 };
