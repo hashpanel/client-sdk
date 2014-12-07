@@ -25,7 +25,7 @@ module.exports = {
    *
    * @return hash rate in MH/s
    */
-  getCurrentHashRate: function () {
+  getCurrentHashrate: function () {
     return this.reduce(function (total, miner) {
       return total + miner.getCurrentHashRate();
     }, 0);
