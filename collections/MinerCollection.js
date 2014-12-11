@@ -3,6 +3,9 @@ var moment = require('moment');
 require('twix');
 
 module.exports = {
+  comparator: function (miner) {
+    return miner.get('name');
+  },
 
   /**
    * Get d3-compatible hashrate chart data

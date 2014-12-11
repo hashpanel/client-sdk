@@ -2,6 +2,11 @@ var _ = require('lodash');
 var moment = require('moment');
 
 module.exports = {
+  getDeviceString: function () {
+    var device = this.get('device');
+    return device.get('manufacturer') + ' ' + device.get('name');
+  },
+
   /**
    * @return cgminer session update as a momentjs duration
    * <http://momentjs.com/docs/#/durations>
@@ -67,6 +72,18 @@ module.exports = {
       url: this.url() + '/chart',
       data: parameters
     });
-  }
+  },
 
+  /**
+   * Get the current hash rate as a formatted string
+   */
+  getCurrentHashrateString: function () {
+    var hashrate = this.getCurrentHashrate();
+    var multiplier = 'M';
+    if (hashrate >= 1e3) multiplier = 'G';
+    if (hashrate >= 1e6) multiplier = 'T';
+    if (hashrate >= 1e9) multiplier = 'P';
+
+    return hashrate.toFixed(2) + ' ' + multiplier + 'H/s';
+  }
 };
