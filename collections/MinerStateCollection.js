@@ -8,10 +8,6 @@ module.exports = {
     return new Date(state.createdAt).valueOf();
   },
 
-  getErrorEvents: function () {
-
-  },
-
   /**
    * getHashchartData
    *
@@ -37,7 +33,7 @@ module.exports = {
         var state = eventsCollection.at(index);
         data.push({
           x: x.toDate(),
-          y: state.getInstantaenousHashrate()
+          y: state.getInstantaneousHashrate()
         });
       }
     }

@@ -2,7 +2,6 @@ var _ = require('lodash');
 var moment = require('moment');
 
 module.exports = {
-
   /**
    * @return cgminer session update as a momentjs duration
    * <http://momentjs.com/docs/#/durations>
@@ -24,7 +23,8 @@ module.exports = {
    * @return hash rate in MH/s
    */
   getCurrentHashrate: function () {
-    return this.get('state').getInstantaenousHashrate();
+    var state = this.get('state');
+    return (state && state.getInstantaneousHashrate()) || 0;
   },
 
   /**
@@ -51,5 +51,22 @@ module.exports = {
    */
   isAvailable: function () {
     return this.get('state').get('success');
+  },
+
+  /**
+   * getChartData
+   *
+   * Query /miner/<id>/chart for d3-compatible chart data
+   */
+  getChartData: function (parameters) {
+    console.log('getChartData: ', parameters);
+    return $.ajax({
+      xhrFields: {
+        withCredentials: true
+      },
+      url: this.url() + '/chart',
+      data: parameters
+    });
   }
+
 };

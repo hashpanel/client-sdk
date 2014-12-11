@@ -12,3 +12,9 @@ exports.create = function (_url) {
 
   return BackboneClient.create(url, namespace);
 };
+
+exports.getNamespace = function () {
+  return namespace;
+};
+
+
