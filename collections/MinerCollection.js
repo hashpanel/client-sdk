@@ -43,21 +43,21 @@ module.exports = {
   },
 
   /**
-   * Return ratio of available miners to unavailable miners
+   * Return ratio of available miners to total miners
    */
   getAvailability: function () {
-    var unavailable = this.reduce(function (total, miner) {
-      return total + Number(!miner.isAvailable());
+    var available = this.reduce(function (total, miner) {
+      return total + Number(miner.isAvailable());
     }, 0);
 
-    return this.length === 0 ? 0 : (unavailable / this.length).toFixed(2);
+    return (available / this.length) || 0;
   },
 
   /**
    * Return availability ratio as a percentage string
    */
   getAvailabilityString: function () {
-    return (this.getAvailability() * 100) + '%';
+    return (this.getAvailability() * 100).toFixed(0) + '%';
   },
 
   /**
