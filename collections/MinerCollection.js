@@ -1,5 +1,6 @@
 var _ = require('lodash');
 var moment = require('moment');
+var util = require('../util');
 require('twix');
 
 module.exports = {
@@ -38,13 +39,7 @@ module.exports = {
    * Get the current hash rate as a formatted string
    */
   getCurrentHashrateString: function () {
-    var hashrate = this.getCurrentHashrate();
-    var multiplier = 'M';
-    if (hashrate >= 1e3) multiplier = 'G';
-    if (hashrate >= 1e6) multiplier = 'T';
-    if (hashrate >= 1e9) multiplier = 'P';
-
-    return hashrate.toFixed(2) + ' ' + multiplier + 'H/s';
+    return util.mhsToString(this.getCurrentHashrate());
   },
 
   /**

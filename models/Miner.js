@@ -1,5 +1,6 @@
 var _ = require('lodash');
 var moment = require('moment');
+var util = require('../util');
 
 module.exports = {
   getDeviceString: function () {
@@ -41,13 +42,24 @@ module.exports = {
     return this.get('state').getAverageHashrate();
   },
 
+  getDeclaredHashrateString: function () {
+    return util.mhsToString(this.get('hashRate'));
+  },
+  getRatedHashrateString: function () {
+    return util.mhsToString(this.get('device').get('hashRate'));
+  },
+
   /**
    * Get the ratio the current measured hash rate to the rated device hash rate.
    * This indicates how well the hardware is performing relative to its
    * advertised speeds.
    */
   getPerformanceRatio: function () {
-    return (this.getCurrentHashrate() / this.get('device').get('hashRate')).toFixed(2);
+    return this.getCurrentHashrate() / this.get('hashRate');
+  },
+
+  getPerformancePercentageString: function () {
+    return (this.getPerformanceRatio() * 100).toFixed(2) + '%';
   },
 
   /**
@@ -78,12 +90,6 @@ module.exports = {
    * Get the current hash rate as a formatted string
    */
   getCurrentHashrateString: function () {
-    var hashrate = this.getCurrentHashrate();
-    var multiplier = 'M';
-    if (hashrate >= 1e3) multiplier = 'G';
-    if (hashrate >= 1e6) multiplier = 'T';
-    if (hashrate >= 1e9) multiplier = 'P';
-
-    return hashrate.toFixed(2) + ' ' + multiplier + 'H/s';
+    return util.mhsToString(this.getCurrentHashrate());
   }
 };
