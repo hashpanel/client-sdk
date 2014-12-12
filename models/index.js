@@ -1,4 +1,5 @@
 module.exports = {
   Miner: require('./Miner'),
-  MinerState: require('./MinerState')
+  MinerState: require('./MinerState'),
+  User: require('./User')
 };
