@@ -30,7 +30,9 @@ describe('MinerDeviceCollection', function () {
     it('should return make/model of devices in a list', function () {
       var deviceNames = devices.getList();
 
-      assert(_.contains(deviceNames, 'Bitmain Antminer S3+'));
+      console.log(deviceNames);
+
+      assert(_.contains(deviceNames, 'Bitmain Antminer S3'));
       assert(_.contains(deviceNames, 'Spondoolies SP20'));
     });
   });
