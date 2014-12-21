@@ -46,14 +46,14 @@ describe('Miner', function () {
       assert.equal(miner1.getTemperature(), 70);
     });
   });
-  describe('#getCurrentHashRate', function () {
+  describe('#getCurrentHashrate', function () {
     it('should return the current hash rate in GHs', function () {
-      assert.equal(miner1.getCurrentHashRate(), 3000);
+      assert.equal(miner1.getCurrentHashrate(), 3000);
     });
   });
-  describe('#getSessionHashRate', function () {
+  describe('#getSessionHashrate', function () {
     it('should return the average cgminer session hash rate in GHs', function () {
-      assert.equal(miner1.getSessionHashRate(), 3000);
+      assert.equal(miner1.getSessionHashrate(), 3000);
     });
   });
   describe('#getPerformanceRatio', function () {

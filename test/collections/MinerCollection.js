@@ -16,7 +16,7 @@ describe('MinerCollection', function () {
       }
     });
   });
-  describe('#getCurrentHashRate', function () {
+  describe('#getCurrentHashrate', function () {
     var minerCollection = [
       new hashware.Miner({
         id: Math.random() * 1000,
@@ -40,11 +40,11 @@ describe('MinerCollection', function () {
       })
     ];
     it('should exist', function () {
-      assert(_.isFunction(hashware.MinerCollection.prototype.getCurrentHashRate));
+      assert(_.isFunction(hashware.MinerCollection.prototype.getCurrentHashrate));
     });
     it('should aggregate hashrate correctly', function () {
       var miners = new hashware.MinerCollection(minerCollection);
-      var currentHashRate = miners.getCurrentHashRate();
+      var currentHashRate = miners.getCurrentHashrate();
       assert(currentHashRate === 10000, 'currentHashRate ' + currentHashRate);
     });
   });

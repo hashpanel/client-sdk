@@ -9,7 +9,7 @@ describe('MinerStateCollection', function () {
     var range = moment().subtract(1, 'day').twix(moment());
     var iterator = range.iterate(moment.duration({ minutes: 5 }));
 
-    it('should return data in a d3-compatible format', function () {
+    it.skip('should return data in a d3-compatible format', function () {
       var miner = hashware.Miner.find({ id: 1 });
       var data = miner.get('history').getHashchartData(iterator);
 
