@@ -55,7 +55,8 @@ module.exports = {
    * advertised speeds.
    */
   getPerformanceRatio: function () {
-    return this.getCurrentHashrate() / this.get('hashRate');
+    var hashRate = this.get('hashRate') || this.get('device').get('hashRate');
+    return (this.getCurrentHashrate() / hashRate) || 0;
   },
 
   getPerformancePercentageString: function () {

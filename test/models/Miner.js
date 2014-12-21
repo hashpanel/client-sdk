@@ -9,6 +9,7 @@ describe('Miner', function () {
       id: Math.random() * 1000,
       hashRate: 4000
     }),
+    hashRate: 4000,
     state: new hashware.MinerState({
       id: Math.random() * 1000,
       summary: {
@@ -58,6 +59,7 @@ describe('Miner', function () {
   });
   describe('#getPerformanceRatio', function () {
     it('should calculate current hashrate to device hashrate ratio', function () {
+      console.log('miner1 hashRate:', miner1.get('hashRate'));
       assert.equal(miner1.getPerformanceRatio(), .75);
     });
   });
