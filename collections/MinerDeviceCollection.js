@@ -6,8 +6,6 @@ module.exports = {
    */
   getList: function () {
     return this.map(function (device) {
-      console.log(device);
-      console.log(device.attributes);
       return device.get('manufacturer') + ' ' + device.get('name');
     });
   }
