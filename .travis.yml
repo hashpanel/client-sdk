@@ -12,6 +12,9 @@ services:
 notifications:
   email: false
 
+# use docker (http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure)
+sudo: false
+
 env:
   global:
     - REDIS_URL=redis://:@localhost:6379
