@@ -45,6 +45,7 @@ module.exports = {
   getDeclaredHashrateString: function () {
     return util.mhsToString(this.get('hashRate'));
   },
+
   getRatedHashrateString: function () {
     return util.mhsToString(this.get('device').get('hashRate'));
   },
@@ -60,7 +61,11 @@ module.exports = {
   },
 
   getPerformancePercentageString: function () {
-    return (this.getPerformanceRatio() * 100).toFixed(2) + '%';
+    var ratio = this.getPerformanceRatio();
+    if (!_.isFinite(ratio)) {
+      ratio = 0;
+    }
+    return (ratio * 100).toFixed(0) + '%';
   },
 
   /**
