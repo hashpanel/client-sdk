@@ -82,7 +82,6 @@ module.exports = {
    * Query /miner/<id>/chart for d3-compatible chart data
    */
   getChartData: function (parameters) {
-    console.log('getChartData: ', parameters);
     return $.ajax({
       xhrFields: {
         withCredentials: true
