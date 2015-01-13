@@ -1,3 +1,5 @@
+'use strict';
+
 var _ = require('lodash');
 var BackboneClient = require('sails-backbone-client');
 var DEFAULT_URL = 'https://hashpanel.io/api/v1/backbonemodel';
@@ -16,5 +18,3 @@ exports.create = function (_url) {
 exports.getNamespace = function () {
   return namespace;
 };
-
-
