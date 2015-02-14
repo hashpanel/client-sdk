@@ -19,16 +19,7 @@ env:
     - REDIS_URL=redis://:@localhost:6379
     - DATABASE_URL=postgres://hashpanel:hashpanel@localhost:5432/hashpanel
 
-before_script:
-  - cd node_modules/hashware-api
-  - npm link ../../
-  - cd ../../
-
 before_install:
   - psql -c "create database hashpanel;" -U postgres
   - psql -c "create user hashpanel with password 'hashpanel';" -U postgres
   - psql -c "grant all privileges on database hashpanel to hashpanel;" -U postgres
-
-before_script:
-  - npm start hashware-api &
-  - sleep 20
