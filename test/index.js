@@ -20,7 +20,7 @@ najax.defaults({
 });
 */
 
-var BackboneClient = require('../');
+var BackboneClient;
 global.Backbone.ajax = require('backbone.ajax');
 
 var util = require('util');
@@ -59,7 +59,7 @@ describe('hashware-backbone-client', function () {
   before(function (done) {
     this.timeout(60 * 1000);
 
-    BackboneClient = require('./');
+    BackboneClient = require('../');
     global.Backbone.ajax = require('backbone.ajax');
 
     app.lift(config, function (error, sails) {
