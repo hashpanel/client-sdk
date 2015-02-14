@@ -19,6 +19,15 @@ env:
     - REDIS_URL=redis://:@localhost:6379
     - DATABASE_URL=postgres://hashpanel:hashpanel@localhost:5432/hashpanel
 
+before_script:
+  - cd node_modules/hashware-api/node_modules/hashware-backbone-client
+  - npm link ../../../../
+  - cd ../../../../
+
+  - cd node_modules/hashware-api/node_modules/sails-backbone
+  - npm link ../../../../
+  - cd ../../../../
+
 before_install:
   - psql -c "create database hashpanel;" -U postgres
   - psql -c "create user hashpanel with password 'hashpanel';" -U postgres
