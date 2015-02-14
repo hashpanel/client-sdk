@@ -7,21 +7,7 @@ var path = require('path');
 var SailsApp = require('sails').Sails;
 var _ = require('lodash');
 
-/*
-najax.defaults({
-  url: {
-    hostname: 'localhost',
-    port: '1337',
-    protocol: 'http'
-  },
-  headers: {
-    Authorization: 'Basic YWRtaW46YWRtaW4xMjM0'  // encoding of default admin user/pass
-  }
-});
-*/
-
 var BackboneClient;
-global.Backbone.ajax = require('backbone.ajax');
 
 var util = require('util');
 var assert = require('assert');
