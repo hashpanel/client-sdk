@@ -1,11 +1,10 @@
 var assert = require('assert');
 var _ = require('lodash');
 
-describe('MinerDeviceCollection', function () {
+describe.skip('MinerDeviceCollection', function () {
   var devices;
-  before(function (done) {
+  before(function () {
     devices = new hashware.MinerDeviceCollection();
-    /*
     devices.fetch({
       success: function (collection) {
         done();
@@ -14,7 +13,6 @@ describe('MinerDeviceCollection', function () {
         done(new Error(JSON.stringify(error)));
       }
     });
-    */
   });
 
   it('should exist', function () {
