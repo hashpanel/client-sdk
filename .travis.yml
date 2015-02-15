@@ -1,25 +1,36 @@
 language: node_js
 node_js:
-  - '0.10'
+- '0.10'
+- '0.11'
+- '0.12'
 
 addons:
   postgresql: '9.3'
 
 services:
-  - redis-server
-
+- redis-server
+  
 notifications:
   email: false
 
-# use docker (http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure)
 sudo: false
 
 env:
   global:
-    - REDIS_URL=redis://:@localhost:6379
-    - DATABASE_URL=postgres://hashpanel:hashpanel@localhost:5432/hashpanel
+  - REDIS_URL=redis://:@localhost:6379
+  - DATABASE_URL=postgres://hashpanel:hashpanel@localhost:5432/hashpanel
 
 before_install:
-  - psql -c "create database hashpanel;" -U postgres
-  - psql -c "create user hashpanel with password 'hashpanel';" -U postgres
-  - psql -c "grant all privileges on database hashpanel to hashpanel;" -U postgres
+- psql -c "create database hashpanel;" -U postgres
+- psql -c "create user hashpanel with password 'hashpanel';" -U postgres
+- psql -c "grant all privileges on database hashpanel to hashpanel;" -U postgres
+
+deploy:
+  provider: npm
+  email: me@traviswebb.com
+  api_key:
+    secure: gQnydPj8kRoSPNXeUUftj2WrPOnt0PYgg5MQUDGwgLC92Bkgm7sU5OQM1P8KG5al4Anmyzt2/aLsp9HUY/Ro0L19XXke4oyO6Fv7zkm5bUDe1NGC3r2IlM73vuvMnfzQ8bhAkRahfkDhb9y0GrvaAtr5el41dXOhHkW1bzrsY+4=
+  on:
+    tags: true
+    repo: hashware/backbone-client
+    all_branches: true
