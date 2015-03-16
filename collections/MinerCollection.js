@@ -57,8 +57,19 @@ module.exports = {
       ).then(function (difficulty, blockreward) {
         var d = Number(difficulty[0]);
         var b = Number(blockreward[0]) / 1e8;
-        var h = this.getCurrentHashrate();
-        var t = duration.seconds();
+        var h = this.getCurrentHashrate() * 1e6;
+        var t = duration.asSeconds();
+
+        /*
+        console.log('duration', duration);
+        console.log('difficulty', difficulty);
+        console.log('reward', blockreward);
+        console.log('d', d);
+        console.log('b', b);
+        console.log('h', h);
+        console.log('t', t);
+        console.log('daily revenue', (b * h * t) / (Math.pow(2, 32) * d));
+        */
 
         return (b * h * t) / (Math.pow(2, 32) * d);
       }.bind(this));
