@@ -1,6 +1,6 @@
 {
   "name": "hashware-backbone-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Backbone client library for the hashware API ",
   "main": "index.js",
   "scripts": {
