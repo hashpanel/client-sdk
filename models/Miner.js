@@ -73,7 +73,8 @@ module.exports = {
    * available, and false otherwise.
    */
   isAvailable: function () {
-    return this.get('state').get('success');
+    var state = this.get('state');
+    return state && state.get('success');
   },
 
   /**
